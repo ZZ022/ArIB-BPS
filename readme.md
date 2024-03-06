@@ -27,7 +27,7 @@ We use three kinds of folder structures for dataset:
 
 ## Encoding and Decoding
 ```
-python compress.py (--encode | --decode) --input [path of input file] --output [path of output file] --config [path of config file] --model [path of model folder]
+python compress.py (--encode | --decode) --input [path to input file] --output [path to output file] --config [path of config file] --model [path to model folder]
 ```
 
 ## Testing
