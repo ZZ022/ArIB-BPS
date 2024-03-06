@@ -1,0 +1,6 @@
+weights/
+datasets/
+logs/
+__pycache__/
+crosscheck.md
+mixcoder.so
