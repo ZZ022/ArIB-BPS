@@ -48,7 +48,7 @@ python train.py --num_gpus [number of gpus] --mode [sig|ins|finetune] --dataset_
 ```
 
 - Sig mode: train the model for significant planes.
-- Ins: train the model for insignificant planes.
+- Ins mode: train the model for insignificant planes.
 - Finetune mode: finetune the model for significant planes using discretized sampling. To use this mode, a pretrained model for both significant and insignificant planes should be provided, and a dataset with qplist should be provided, which could be generated using
 ```
 python generate_finetune_dataset.py --dataset_type [cifar10|filedataset] --data_dir [path to dataset folder] --model [path to model folder] <--data_dst>[path to folder of qp list and imgs, only required for cifar10 dataset]  <--qp_path> [relative path to qplist]
