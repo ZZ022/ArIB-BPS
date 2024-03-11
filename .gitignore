@@ -5,3 +5,5 @@ logs/
 __pycache__/
 crosscheck.md
 mixcoder.so
+compile.sh
+train_backup.py

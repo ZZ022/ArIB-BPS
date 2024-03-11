@@ -14,7 +14,7 @@ conda env create -f arib_bps.yml
 ## Entropy Coder Compiling
 ```
 cd src/utils/coder
-sh compile.sh
+g++ -O3 -Wall -shared -std=c++11 -fPIC `python -m pybind11 --includes` python_interface.cpp -o mixcoder.so
 ```
 
 ## Folder Structure
@@ -44,7 +44,7 @@ python test.py --dataset [cifar10|imagenet32|imagenet64|imagenet64_small] --data
 Models for significant planes and insignificant planes are trained separately. 
 
 ```
-python train.py --num_gpus [number of gpus] --mode [sig|ins|finetune] --dataset_type [cifar10|imagefolder|filedataset] --data_dir [path to dataset folder] --valid_num [size of validation set] --config [path to config file] --dropput [probability of dropout] --save_dir [path to save log and weights] --lr [learning rate] --batch_size [batch size for each gpu] --num_iters [number of iterations] --log_interval [interval of logging] --valid_interval [interval of validation] --decay_rate [decay rate of learning rate] --decay_interval [interval of decaying learning rate] <--resume> [path to pretrained checkpoints] <--qp_path> [relative path to qplist, only used for finetune mode] <--master_port> [master port for ddp]
+python train.py --num_gpus [number of gpus] --mode [sig|ins|finetune] --dataset_type [cifar10|imagefolder|filedataset] --data_dir [path to dataset folder] --valid_num [size of validation set] --config [path to config file] --dropout [probability of dropout] --save_dir [path to save log and weights] --lr [learning rate] --batch_size [batch size for each gpu] --num_iters [number of iterations] --log_interval [interval of logging] --valid_interval [interval of validation] --decay_rate [decay rate of learning rate] --decay_interval [interval of decaying learning rate] <--resume> [path to pretrained checkpoints] <--qp_path> [relative path to qplist, only used for finetune mode] <--master_port> [master port for ddp]
 ```
 
 - Sig mode: train the model for significant planes.
@@ -56,6 +56,32 @@ python generate_finetune_dataset.py --dataset_type [cifar10|filedataset] --data_
 
 ## Pretrained Models
 Pretrained models are available [here](https://drive.google.com/drive/folders/1RiI2Fzqu0lhjHSpjrOVPb0eOzvnJD9XC?usp=sharing). Related configuration files are available in src/config folder.
+
+## Training Settings
+We list the training settings for the models in the following table.
+- lr: learning rate.
+- bs: total batch size, which equals to the batch size for each gpu times the number of gpus.
+- ni: number of iterations.
+- vi: interval of validation.
+- dr: decay rate of learning rate.
+- di: interval of decaying learning rate.
+- drop: probability of dropout.
+- IN: ImageNet.
+
+| model | mode | lr | bs |ni|vi|dr|di|drop|
+| ------- | ------- | ------- | ------- | ------- | ------- |------- | ------- | ------- |
+| Cifar10 | sig | 2e-4 | 16 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.3 |
+| Cifar10 | ins | 2e-4 | 16 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.3 |
+| Cifar10 | finetune | 1e-5 | 16 | 5.6e4 |2.8e3 | 1 | 2.8e3 |0.3 |
+| IN32 | sig | 2e-4 | 128 | 7e5 |1e4 | 0.965 | 1e4 |0.2 |
+| IN32 | ins | 2e-4 | 128 | 7e5 |1e4 | 0.965 | 1e4 |0.2 |
+| IN32 | finetune | 1e-5 | 16 | 1e5 |1e4 | 1 | 1e4 |0.0 |
+| IN64 | sig | 2e-4 | 128 | 6e5 |1e4 | 0.965 | 1e4 |0.0 |
+| IN64 | ins | 2e-4 | 128 | 6e5 |1e4 | 0.965 | 1e4 |0.0 |
+| IN64 | finetune | 1e-5 | 16 | 1e5 |1e4 | 1 | 1e4 |0.0 |
+| IN64(small) | sig | 2e-4 | 128 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.0 |
+| IN64(small) | ins | 2e-4 | 128 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.0 |
+| IN64(small) | finetune | 1e-5 | 16 | 1.3e5 |2.8e3 | 1 | 2.8e3 |0.0 |
 
 ## Citation
 
