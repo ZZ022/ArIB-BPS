@@ -27,7 +27,7 @@ We use three kinds of folder structures for dataset:
 
 ## Encoding and Decoding
 ```
-python compress.py (--encode | --decode) --input [path to input file] --output [path to output file] --config [path of config file] --model [path to model folder]
+python compress.py (--encode | --decode) --input [path to input file] --output [path to output file] --config [path to config file] --model [path to model folder]
 ```
 
 ## Testing
@@ -44,14 +44,14 @@ python test.py --dataset [cifar10|imagenet32|imagenet64|imagenet64_small] --data
 Models for significant planes and insignificant planes are trained separately. 
 
 ```
-python train.py --num_gpus [number of gpus] --mode [sig|ins|finetune] --dataset_type [cifar10|imagefolder|filedataset] --data_dir [path to dataset folder] --valid_num [size of validation set] --config [path of config file] --dropput [probability of dropout] --save_dir [path to save log and weights] --lr [learning rate] --batch_size [batch size for each gpu] --num_iters [number of iterations] --log_interval [interval of logging] --valid_interval [interval of validation] --decay_rate [decay rate of learning rate] --decay_interval [interval of decaying learning rate] <--resume> [path of pretrained checkpoints] <--qp_path> [relative path to qplist, only used for finetune mode] <--master_port> [master port for ddp]
+python train.py --num_gpus [number of gpus] --mode [sig|ins|finetune] --dataset_type [cifar10|imagefolder|filedataset] --data_dir [path to dataset folder] --valid_num [size of validation set] --config [path to config file] --dropput [probability of dropout] --save_dir [path to save log and weights] --lr [learning rate] --batch_size [batch size for each gpu] --num_iters [number of iterations] --log_interval [interval of logging] --valid_interval [interval of validation] --decay_rate [decay rate of learning rate] --decay_interval [interval of decaying learning rate] <--resume> [path to pretrained checkpoints] <--qp_path> [relative path to qplist, only used for finetune mode] <--master_port> [master port for ddp]
 ```
 
 - Sig mode: train the model for significant planes.
 - Ins mode: train the model for insignificant planes.
 - Finetune mode: finetune the model for significant planes using discretized sampling. To use this mode, a pretrained model for both significant and insignificant planes should be provided, and a dataset with qplist should be provided, which could be generated using
 ```
-python generate_finetune_dataset.py --dataset_type [cifar10|filedataset] --data_dir [path to dataset folder] --model [path to model folder] <--data_dst>[path to folder of qp list and imgs, only required for cifar10 dataset]  <--qp_path> [relative path to qplist]
+python generate_finetune_dataset.py --dataset_type [cifar10|filedataset] --data_dir [path to dataset folder] --model [path to model folder] --config [path to config file] <--data_dst>[path to folder of qp list and imgs, only required for cifar10 dataset]  <--qp_path> [relative path to qplist]
 ``` 
 
 ## Pretrained Models

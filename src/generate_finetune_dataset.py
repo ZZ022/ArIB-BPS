@@ -17,7 +17,7 @@ def parse(args):
     parser.add_argument('--dataset_type', type=str, default='filedataset', help='cifar10 | filedataset')
     parser.add_argument('--qp_path', type=str, default='qps.txt', help='path to dataset')
     parser.add_argument('--model', type=str, required=True, help='dir to model')
-    parser.add_argument('--config', type=str, required=True, help='path to model config')
+    parser.add_argument('--config', type=str, required=True, help='path to model config file')
     return parser.parse_args(args)
 
 def main(args):
