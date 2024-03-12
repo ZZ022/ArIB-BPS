@@ -66,22 +66,23 @@ We list the training settings for the models in the following table.
 - dr: decay rate of learning rate.
 - di: interval of decaying learning rate.
 - drop: probability of dropout.
+- vs: size of validation set.
 - IN: ImageNet.
 
-| model | mode | lr | bs |ni|vi|dr|di|drop|
-| ------- | ------- | ------- | ------- | ------- | ------- |------- | ------- | ------- |
-| Cifar10 | sig | 2e-4 | 16 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.3 |
-| Cifar10 | ins | 2e-4 | 16 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.3 |
-| Cifar10 | finetune | 1e-5 | 16 | 5.6e4 |2.8e3 | 1 | 2.8e3 |0.3 |
-| IN32 | sig | 2e-4 | 128 | 7e5 |1e4 | 0.965 | 1e4 |0.2 |
-| IN32 | ins | 2e-4 | 128 | 7e5 |1e4 | 0.965 | 1e4 |0.2 |
-| IN32 | finetune | 1e-5 | 16 | 1e5 |1e4 | 1 | 1e4 |0.0 |
-| IN64 | sig | 2e-4 | 128 | 6e5 |1e4 | 0.965 | 1e4 |0.0 |
-| IN64 | ins | 2e-4 | 128 | 6e5 |1e4 | 0.965 | 1e4 |0.0 |
-| IN64 | finetune | 1e-5 | 16 | 1e5 |1e4 | 1 | 1e4 |0.0 |
-| IN64(small) | sig | 2e-4 | 128 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.0 |
-| IN64(small) | ins | 2e-4 | 128 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.0 |
-| IN64(small) | finetune | 1e-5 | 16 | 1.3e5 |2.8e3 | 1 | 2.8e3 |0.0 |
+| model | mode | lr | bs |ni|vi|dr|di|drop|vs|
+| ------- | ------- | ------- | ------- | ------- | ------- |------- | ------- | ------- |------- |
+| Cifar10 | sig | 2e-4 | 16 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.3 |5000|
+| Cifar10 | ins | 2e-4 | 16 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.3 |5000|
+| Cifar10 | finetune | 1e-5 | 16 | 5.6e4 |2.8e3 | 1 | 2.8e3 |0.3 |5000|
+| IN32 | sig | 2e-4 | 128 | 7e5 |1e4 | 0.965 | 1e4 |0.2 |50000|
+| IN32 | ins | 2e-4 | 128 | 7e5 |1e4 | 0.965 | 1e4 |0.2 |50000|
+| IN32 | finetune | 1e-5 | 16 | 1e5 |1e4 | 1 | 1e4 |0.0 |50000|
+| IN64 | sig | 2e-4 | 128 | 6e5 |1e4 | 0.965 | 1e4 |0.0 |50000|
+| IN64 | ins | 2e-4 | 128 | 6e5 |1e4 | 0.965 | 1e4 |0.0 |50000|
+| IN64 | finetune | 1e-5 | 16 | 1e5 |1e4 | 1 | 1e4 |0.0 |50000|
+| IN64(small) | sig | 2e-4 | 128 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.0 |50000|
+| IN64(small) | ins | 2e-4 | 128 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.0 |50000|
+| IN64(small) | finetune | 1e-5 | 16 | 1.3e5 |2.8e3 | 1 | 2.8e3 |0.0 |50000|
 
 ## Citation
 
