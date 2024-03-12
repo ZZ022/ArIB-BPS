@@ -84,6 +84,11 @@ We list the training settings for the models in the following table.
 | IN64(small) | ins | 2e-4 | 128 | 7.4e5 |2.8e3 | 0.99 | 2.8e3 |0.0 |50000|
 | IN64(small) | finetune | 1e-5 | 16 | 1.3e5 |2.8e3 | 1 | 2.8e3 |0.0 |50000|
 
+## Note
+There are two versions of ImageNet32 and ImageNet64 datasets. We use the old version to compare with existing methods. The old version is avaible here
+
+[ImageNet32](https://academictorrents.com/details/bf62f5051ef878b9c357e6221e879629a9b4b172) [ImageNet64](https://academictorrents.com/details/96816a530ee002254d29bf7a61c0c158d3dedc3b)
+
 ## Citation
 
 ```
