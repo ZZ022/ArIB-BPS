@@ -57,12 +57,12 @@ def main(args):
         from torchvision.datasets import CIFAR10
         data_set = CIFAR10(
             root=args.data_dir,
-            train=False,
+            train=True,
             download=True,
             transform=PILToTensorUint8(),
         )
         if not os.path.exists(args.data_dst):
-            os.makedirs(args.data_dst)
+            os.mkdir(args.data_dst)
         qppath = os.path.join(args.data_dst, args.qp_path)
     elif args.dataset_type == 'filedataset':
         from utils.datasets import FileDataset
@@ -90,9 +90,9 @@ def main(args):
                 img = Image.fromarray(img.astype(np.uint8))
                 img.save(os.path.join(args.data_dst, f'{idx1}.png'))
             else:
+                loss_ins = model.ins.inference(x).sum()
                 qp_ = loss_ins.item()*xsize/zsize
-                qp_ = loss_ins*xsize/zsize
-                qp = np.floor(qp_).astype(int).clip(model.ql, model.qu)
+                qp = min(max(model.ql, qp_), model.qu)
                 qps[idx2] = np.floor(qp).astype(int)
     print(f'saving qplist to {qppath}')
     np.savetxt(qppath, qps)
