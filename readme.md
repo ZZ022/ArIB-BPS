@@ -1,7 +1,7 @@
 # ArIB-BPS
 
 ### <p align="center"> Learned Lossless Image Compression based on Bit Plane Slicing</p>
-####  <p align="center"> CVPR 2024</p>
+####  <p align="center"> CVPR 2024 [pdf](https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_Learned_Lossless_Image_Compression_based_on_Bit_Plane_Slicing_CVPR_2024_paper.pdf) [supp](https://openaccess.thecvf.com/content/CVPR2024/supplemental/Zhang_Learned_Lossless_Image_CVPR_2024_supplemental.pdf)</p>
 ####  <p align="center"> Zhe Zhang, Huairui Wang, Zhenzhong Chen, Shan Liu</p>
 
 ![framework](./assets/overview.png)
