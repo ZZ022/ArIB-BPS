@@ -96,5 +96,7 @@ There are two versions of ImageNet32 and ImageNet64 datasets. We use the old ver
     author    = {Zhang, Zhe and Wang, Huairui and Chen, Zhenzhong and Liu, Shan},
     title     = {Learned Lossless Image Compression based on Bit Plane Slicing},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
     year      = {2024},
+    pages     = {27579-27588}
 }
