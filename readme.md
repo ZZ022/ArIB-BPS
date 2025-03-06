@@ -33,7 +33,7 @@ python compress.py (--encode | --decode) --input [path to input file] --output [
 
 ## Testing
 ```
-python test.py --dataset [cifar10|imagenet32|imagenet64|imagenet64_small] --dataset_type [cifar10|imagefolder|filedataset] --data_dir [path to dataset folder] --model [path to model folder] --mode [inference|single|dataset|speed] <--batchsize> [batch size for inference, or size of dataset for dataset compression setting] <--log_path> [logger path for dataset/single compression setting]
+python test.py --dataset [cifar10|imagenet32|imagenet64|imagenet64_small] --dataset_type [cifar10|imagefolder|filedataset] --data_dir [path to dataset folder] --model [path to model folder] --mode [inference|single|dataset|speed] <--batch_size> [batch size for inference, or size of dataset for dataset compression setting] <--log_path> [logger path for dataset/single compression setting]
 ```
 
 - Inference mode: evaluate the thereotical compression performance.

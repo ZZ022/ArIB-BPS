@@ -117,11 +117,11 @@ class SIG(nn.Module):
         t_base = th.ones(b, device=x.device)
         timesteps = th.cat([t_base*i for i in range(1, self.sig_num)])
         hyperprior, loss_ps, loss_qs = self.lvae(sig_planes, qps)
-        hyperprior = hyperprior.repeat(4, 1, 1, 1)
         plane_contexts = self.plane_context(th.cat([(x >> (8-i) << (8-i)).float()/255.0 for i in range(1, self.sig_num)], dim=0), timesteps)
         plane_contexts = th.chunk(plane_contexts, self.sig_num-1, dim=0)
         loss_px = th.zeros(12*self.sig_num, device=x.device)
         if self.share:
+            hyperprior = hyperprior.repeat(4, 1, 1, 1)
             for i in range(self.sig_num):
                 xt = get_bit_plane(x, i+1)
                 space_prior = th.zeros_like(xt)
